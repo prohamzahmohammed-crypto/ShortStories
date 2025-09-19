@@ -1,0 +1,169 @@
+/* Reset basic */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #000019; /* نفس لون الموقع */
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* Header (نفس التصميم في كل الصفحات) */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: #0a0a3d;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    border-bottom: 2px solid #ff6600;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+header .logo a {
+    text-decoration: none;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ff6600;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+header .logo a:hover {
+    color: #fff;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+header nav ul li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #ff6600;
+    transition: width 0.3s;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+header nav ul li a:hover::after,
+header nav ul li a.active::after {
+    width: 100%;
+}
+
+header nav ul li a:hover,
+header nav ul li a.active {
+    color: #ff6600;
+}
+
+header .login a {
+    text-decoration: none;
+    color: #0a0a3d;
+    background-color: #ff6600;
+    font-weight: 500;
+    padding: 8px 18px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    border: 2px solid #ff6600;
+}
+
+header .login a:hover {
+    background-color: transparent;
+    color: #ff6600;
+}
+
+/* Main About Section */
+main {
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.about-section {
+    max-width: 1000px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.about-intro h1 {
+    font-size: 2.5rem;
+    color: #ff6600;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.about-intro p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-align: center;
+    color: #ccc;
+}
+
+/* Vision & Mission */
+.vision-mission {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.vision-mission .card {
+    background-color: #0f0f5d;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.7);
+    flex: 1 1 300px;
+    max-width: 450px;
+    text-align: center;
+}
+
+.vision-mission .card h2 {
+    color: #ff6600;
+    margin-bottom: 15px;
+}
+
+.vision-mission .card p {
+    color: #ccc;
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .about-intro h1 {
+        font-size: 2rem;
+    }
+}

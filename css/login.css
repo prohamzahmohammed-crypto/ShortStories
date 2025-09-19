@@ -1,0 +1,190 @@
+/* Reset basic */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #000019; /* نفس لون الصفحة الرئيسية */
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* Header نفس التصميم كما في Home */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: #0a0a3d;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    border-bottom: 2px solid #ff6600;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+header .logo a {
+    text-decoration: none;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ff6600;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+header .logo a:hover {
+    color: #fff;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+header nav ul li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #ff6600;
+    transition: width 0.3s;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+header nav ul li a:hover::after {
+    width: 100%;
+}
+
+header nav ul li a:hover {
+    color: #ff6600;
+}
+
+header .login a {
+    text-decoration: none;
+    color: #0a0a3d;
+    background-color: #ff6600;
+    font-weight: 500;
+    padding: 8px 18px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    border: 2px solid #ff6600;
+}
+
+header .login a:hover {
+    background-color: transparent;
+    color: #ff6600;
+}
+
+/* Main Login */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 80px);
+    padding: 20px;
+}
+
+.login-container {
+    background-color: #0a0a3d;
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.7);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.login-container h1 {
+    margin-bottom: 30px;
+    color: #ff6600;
+}
+
+.login-container .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.login-container label {
+    display: block;
+    margin-bottom: 8px;
+    color: #fff;
+    font-weight: 500;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+}
+
+.login-container input:focus {
+    border: 2px solid #ff6600;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #ff6600;
+    border: none;
+    border-radius: 25px;
+    color: #0a0a3d;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.login-container button:hover {
+    background-color: transparent;
+    color: #ff6600;
+    border: 2px solid #ff6600;
+}
+
+.signup-text {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+.signup-text a {
+    color: #ff6600;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.signup-text a:hover {
+    color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+}

@@ -1,0 +1,449 @@
+:root {
+  --bg: #000019;
+  --ink: #111827;
+  --muted: #6b7280;
+  --accent: #e11d48; /* rose-600 */
+  --accent-ink: #fff5f7;
+  --surface: #ffffff;
+  --border: #e5e7eb;
+  --radius: 18px;
+  --shadow: 0 14px 32px rgba(0, 0, 0, 0.1);
+  --maxw: 1100px;
+  --gap: 1.25rem;
+  --card-w: 340px;
+  --card-h: 430px;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #130f16;
+    --ink: #e7eaf0;
+    --muted: #9aa3b2;
+    --accent: #fb7185; /* rose-400 */
+    --accent-ink: #130f16;
+    --surface: #181320;
+    --border: #2a2434;
+    --shadow: 0 18px 36px rgba(0, 0, 0, 0.55);
+  }
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: #0a0a3d;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    border-bottom: 2px solid #ff6600;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .logo a {
+    text-decoration: none;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ff6600;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    position: relative;
+}
+
+header nav ul li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #ff6600;
+    transition: width 0.3s;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+header nav ul li a:hover::after,
+header nav ul li a.active::after {
+    width: 100%;
+}
+
+header nav ul li a:hover,
+header nav ul li a.active {
+    color: #ff6600;
+}
+
+header .login a {
+    text-decoration: none;
+    color: #0a0a3d;
+    background-color: #ff6600;
+    font-weight: 500;
+    padding: 8px 18px;
+    border-radius: 25px;
+    border: 2px solid #ff6600;
+    transition: all 0.3s ease;
+}
+
+header .login a:hover {
+    background-color: transparent;
+    color: #ff6600;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Georgia", serif;
+  background: radial-gradient(
+      1200px 800px at 50% -20%,
+      rgba(225, 29, 72, 0.08),
+      transparent 60%
+    )
+    var(--bg);
+  color: var(--ink);
+  line-height: 1.72;
+}
+
+header {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 2rem 1rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+.mast h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  letter-spacing: 0.2px;
+}
+.dek {
+  margin: 0.4rem 0 0;
+  color: var(--muted);
+}
+
+/* ===== Grid of flip tiles ===== */
+.grid {
+  max-width: var(--maxw);
+  margin: 1.25rem auto 2.5rem;
+  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--gap);
+  place-items: center;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 720px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tile {
+  width: min(100%, var(--card-w));
+  perspective: 1400px; /* enables 3D */
+  position: relative;
+}
+
+/* Use a hidden checkbox to toggle flip (accessible + keyboardable) */
+.flip-toggle {
+  position: absolute;
+  inset: 0;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.flip {
+  width: 100%;
+  height: var(--card-h);
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.face {
+  position: absolute;
+  inset: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  backface-visibility: hidden;
+  overflow: clip;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+.front:hover {
+  transform: translateY(-2px);
+}
+
+.hero {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  border-bottom: 1px solid var(--border);
+}
+.pad {
+  padding: 1rem 1rem 0.6rem;
+}
+.title {
+  margin: 0.15rem 0 0.2rem;
+  font-size: 1.35rem;
+  color: var(--accent);
+  line-height: 1.22;
+}
+.meta {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.excerpt {
+  margin: 0.6rem 0 0;
+}
+
+/* ===== Back face: TEXT ONLY (no images) ===== */
+.back {
+  transform: rotateY(180deg);
+  padding: 0; /* we manage padding via back-pad */
+  grid-template-rows: 1fr auto; /* text content grows; actions at bottom */
+}
+.back-pad {
+  padding: 1rem 1rem 0.2rem;
+  overflow: auto;
+}
+.back .title {
+  margin-top: 0;
+}
+.back .excerpt {
+  color: var(--ink);
+  margin-top: 0.4rem;
+}
+.hint {
+  margin: 0.4rem 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.actions {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  padding: 0.8rem 1rem 1rem;
+  background: linear-gradient(
+    to top,
+    color-mix(in oklab, var(--accent) 8%, transparent),
+    transparent 60%
+  );
+  border-top: 1px dashed var(--border);
+}
+
+/* Flip states */
+.flip-toggle:checked + .flip {
+  transform: rotateY(180deg);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  line-height: 1;
+  padding: 0.7rem 1.05rem;
+  border: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.03);
+  color: inherit;
+}
+@media (prefers-color-scheme: dark) {
+  .btn {
+    background: rgba(255, 255, 255, 0.06);
+  }
+}
+.read-more {
+  background: var(--accent);
+  color: var(--accent-ink);
+  border-color: color-mix(in oklab, var(--accent) 65%, black);
+  box-shadow: 0 10px 22px color-mix(in oklab, var(--accent) 25%, transparent);
+  padding: 0.78rem 1.15rem; /* slightly larger for emphasis */
+  letter-spacing: 0.2px;
+}
+
+.flip-btn {
+  position: absolute;
+  right: 0.7rem;
+  top: 0.7rem;
+  z-index: 3;
+  background: color-mix(in oklab, var(--accent) 12%, var(--surface));
+  color: var(--accent);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.35rem 0.7rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  user-select: none;
+  box-shadow: var(--shadow);
+}
+.flip-btn:focus-visible {
+  outline: 3px solid color-mix(in oklab, var(--accent) 55%, transparent);
+  outline-offset: 2px;
+}
+/* Change text when flipped using :has() as progressive enhancement */
+.tile:has(.flip-toggle:checked) .flip-btn[data-front] {
+  display: none;
+}
+.tile:not(:has(.flip-toggle:checked)) .flip-btn[data-back] {
+  display: none;
+}
+
+/* Focus helper for links/buttons */
+a,
+button,
+label {
+  outline: none;
+}
+a:focus-visible,
+button:focus-visible,
+label:focus-visible {
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 55%, transparent),
+    0 0 0 6px color-mix(in oklab, var(--accent) 25%, transparent);
+  border-radius: 12px;
+  transition: box-shadow 0.15s ease;
+}
+
+/* ===== Dialogs (full story) ===== */
+dialog {
+  width: 92%;
+  max-width: 760px;
+  border: none;
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  background: var(--surface);
+  color: var(--ink);
+  padding: 2rem;
+  position: relative;
+  text-align: left;
+}
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.55);
+}
+.close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  font-size: 1.25rem;
+  color: var(--accent);
+}
+dialog img {
+  width: 460px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 1rem;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+}
+dialog h2 {
+  margin: 0.25rem 0 0.8rem;
+  line-height: 1.25;
+}
+dialog p {
+  margin: 0 0 1rem;
+}
+
+/* ===== Print: only OPEN dialog ===== */
+@media print {
+  @page {
+    margin: 16mm;
+  }
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  html,
+  body {
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  body:has(dialog[open]) > :not(dialog[open]) {
+    display: none !important;
+  }
+  dialog:not([open]) {
+    display: none !important;
+  }
+
+  dialog[open] {
+    display: block !important;
+    position: static !important;
+    inset: auto !important;
+    transform: none !important;
+    width: auto !important;
+    max-width: none !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    background: var(--surface) !important;
+  }
+  dialog[open]::backdrop {
+    display: none !important;
+  }
+
+  .close-btn,
+  .read-more {
+    display: none !important;
+  }
+  h1,
+  h2,
+  img {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  p,
+  li {
+    orphans: 3;
+    widows: 3;
+  }
+
+  * {
+    scrollbar-width: none !important;
+  }
+  *::-webkit-scrollbar {
+    display: none !important;
+  }
+}
