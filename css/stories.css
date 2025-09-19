@@ -109,6 +109,12 @@ header .login a:hover {
     }
 }
 
+@media (max-width: 480px) {
+    header .login a {
+        padding: 5px 10px;
+        font-size: 0.9rem;
+    }
+}
 
 .mast h1 {
   margin: 0;
@@ -423,3 +429,4 @@ dialog p {
     display: none !important;
   }
 }
+
