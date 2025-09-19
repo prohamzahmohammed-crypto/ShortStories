@@ -182,16 +182,3 @@ main {
 .signup-text a:hover {
     color: var(--txt-color);
 }
-
-@media (max-width: 480px) {
-    header {
-        flex-direction: column;
-        gap: 15px;
-        padding: 15px 20px;
-    }
-
-    header nav ul {
-        flex-direction: column;
-        gap: 15px;
-    }
-}
