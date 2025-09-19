@@ -5,18 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Stories</title>
   <link rel="stylesheet" href="../css/stories.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
     <header>
         <div class="logo">
-            <a href="home.html"> MyStory </a>
+            <a href="#"><i class="fa-solid fa-book-open-reader"></i></a>
         </div>
         <nav>
             <ul>
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="stories.html">Stories</a></li>
-                <li><a href="#" class="active">Contact</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
         <div class="login">
@@ -60,7 +61,6 @@
       </div>
     </div>
 
-    <!-- Tile 2 -->
     <div class="tile">
       <input class="flip-toggle" type="checkbox" id="flip2" aria-controls="flip2-card" />
       <div class="flip" id="flip2-card" role="group" aria-label="Beneath the Old Oak card">
@@ -77,7 +77,6 @@
           <label data-front class="flip-btn" for="flip2" aria-controls="flip2-card" aria-label="Flip card">Flip</label>
         </article>
 
-        <!-- Back (TEXT ONLY) -->
         <article class="face back">
           <div class="back-pad">
             <h2 class="title">Beneath the Old Oak</h2>
@@ -95,7 +94,6 @@
       </div>
     </div>
 
-    <!-- Tile 3 -->
     <div class="tile">
       <input class="flip-toggle" type="checkbox" id="flip3" aria-controls="flip3-card" />
       <div class="flip" id="flip3-card" role="group" aria-label="The Paper Lantern Shop card">
@@ -112,7 +110,6 @@
           <label data-front class="flip-btn" for="flip3" aria-controls="flip3-card" aria-label="Flip card">Flip</label>
         </article>
 
-        <!-- Back (TEXT ONLY) -->
         <article class="face back">
           <div class="back-pad">
             <h2 class="title">The Paper Lantern Shop</h2>
@@ -131,9 +128,8 @@
     </div>
   </main>
 
-  <!-- ============================== DIALOGS (full texts) ============================== -->
+  <!-- ============================== DIALOGS (full story) ============================== -->
 
-  <!-- Dialog 1 -->
   <dialog id="story1" aria-labelledby="story1-title">
     <button class="close-btn" onclick="this.parentElement.close()" aria-label="Close story">✕</button>
     <img src="../imgs/TheLastTrain.png" alt="The Last Train full">
@@ -184,7 +180,6 @@
       morning without a timetable, and for once, she was not late for her life.</p>
   </dialog>
 
-  <!-- Dialog 2 -->
   <dialog id="story2" aria-labelledby="story2-title">
     <button class="close-btn" onclick="this.parentElement.close()" aria-label="Close story">✕</button>
     <img src="../imgs/BeneathTheOldOak.png" alt="Beneath the Old Oak full">
@@ -223,7 +218,6 @@
       people later. Sometimes the tree answers instead. Both are good news.</p>
   </dialog>
 
-  <!-- Dialog 3 -->
   <dialog id="story3" aria-labelledby="story3-title">
     <button class="close-btn" onclick="this.parentElement.close()" aria-label="Close story">✕</button>
     <img src="../imgs/ThePaperLanternShop.png" alt="The Paper Lantern Shop full">
@@ -298,5 +292,4 @@
       hurt.</p>
   </dialog>
 </body>
-
 </html>
